@@ -5,7 +5,6 @@ import crafttweaker.item.IIngredient;
 val removeItemArray = [
 	<tconstruct:throwball:1>,
 	<tconstruct:piggybackpack>,
-	<thermalexpansion:augment:336>,
 	<randomthings:diviningrod:*>,
 	<randomthings:spectrekey>,
 	<randomthings:spectreanchor>,
@@ -24,7 +23,6 @@ val removeItemArray = [
 	<cfm:mirror>,
 	<cfm:modern_tv>,
 	<cfm:washing_machine>,
-	<thermalexpansion:florb:*>,
 	<xreliquary:interdiction_torch>,
 	<ebwizardry:blank_scroll>
 ] as IIngredient[];
