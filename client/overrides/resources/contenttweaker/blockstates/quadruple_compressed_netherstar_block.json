@@ -1,0 +1,16 @@
+{
+	"forge_marker": 1,
+	"defaults": {
+		"textures": {
+			"texture": "contenttweaker:blocks/quadruple_compressed_netherstar_block",
+			"particle": "contenttweaker:blocks/quadruple_compressed_netherstar_block"
+		},
+		"model": "base:storage",
+		"uvlock": true,
+		"transform": "forge:default-block"
+	},
+	"variants": {
+		"normal": [{}],
+		"inventory": [{}]
+	}
+}

@@ -1,0 +1,24 @@
+character.server_chan.name=§d[§bServer酱§d]§r
+
+message.shw.login.newplayer.1=欢迎新玩家
+
+message.shw.login.player.1=欢迎
+message.shw.login.player.2=§7总计登录次数:
+
+
+command.shw.hat.usage=/hat 将主手的物品与头部的物品交换,无参数
+command.shw.hat.error=§c头部物品带有绑定诅咒附魔
+
+command.shw.myscore.usage=/myscore 查询自己的记分板值,无参数
+command.shw.myscore.message.1=总计登录数: 
+command.shw.myscore.message.2=总计死亡数: 
+command.shw.myscore.message.3=总计击杀数: 
+
+command.shw.suicide.usage=/suicide 自杀
+
+command.shw.login_count.usage=/login_count <get|set> <playername>
+command.shw.login_count.message.1=玩家 %s 的登录次数为 %s
+command.shw.login_count.message.2=将玩家 %s 的登录次数从 %s 设置为 %s
+
+command.shw.gift.usage=参见/gift help
+command.shw.gift.pack.error=§c打包内容为空

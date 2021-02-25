@@ -1,0 +1,40 @@
+// For more info visit https://faq.ftb.world/books/ftb-utilities/page/ranks
+
+[player]
+power: 1
+default_player_rank: true
+command.ftbutilities.back: false
+command.ftbutilities.setwarp: false
+command.ftbutilities.delwarp: false
+command.ftbutilities.home: false
+command.ftbutilities.sethome: false
+command.ftbutilities.delhome: false
+command.ftbutilities.kickme: true
+command.ftbutilities.nbtedit: false
+command.ftbutilities.fly: false
+command.ftbutilities.god: false
+command.ftbutilities.heal: false
+command.ftbutilities.inv: false
+ftbutilities.claims.max_chunks: 6
+ftbutilities.chunkloader.load_offline: false
+ftbutilities.chunkloader.max_chunks: 2
+ftbutilities.tpa.cross_dim: true
+ftbutilities.tpa.cooldown: 10m
+
+[operator]
+power: 100
+default_op_rank: true
+ftbutilities.chat.name_format: <§3§l{name}&r>
+command: true
+command.ftbutilities.nbtedit: true
+command.ftbutilities.back: true
+command.ftbutilities.setwarp: true
+command.ftbutilities.delwarp: true
+command.ftbutilities.fly: true
+command.ftbutilities.god: true
+command.ftbutilities.heal: true
+command.ftbutilities.inv: true
+ftbutilities.tpa.cooldown: 0
+ftbutilities.claims.max_chunks: 64
+ftbutilities.chunkloader.load_offline: false
+ftbutilities.chunkloader.max_chunks: 64

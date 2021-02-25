@@ -1,0 +1,25 @@
+# The yggdrasil api root
+api=""
+# The location of YggdrasilInjector
+# @see https://github.com/yushijinhun/authlib-injector/
+authlib-injector="./authlib-injector.jar"
+# IMPORTANT: Set this value to `true`!
+edited=true
+# When access multiple apis. Use official api first.
+official-first=true
+# Proxy settings
+proxy {
+    # The proxy of official connecting
+    official {
+        type=direct
+    }
+    # The proxy of yggdrasil connecting
+    yggdrasil {
+        type=direct
+    }
+}
+# The server binding actions.
+server {
+    host="127.0.0.1"
+    port=25551
+}

@@ -1,0 +1,18 @@
+{
+	"minecraft": {
+		"version": "1.12.2",
+		"modLoaders": [
+			{
+				"id": "forge-14.23.5.2855",
+				"primary": true
+			}
+		]
+	},
+	"manifestType": "minecraftModpack",
+	"manifestVersion": 1,
+	"name": "凉宫春日的世界 服务器客户端 四周目测试版本",
+	"version": "4.0.0-alpha.62",
+	"author": "凉宫春日MC部",
+	"files": [],
+	"overrides": "overrides"
+}

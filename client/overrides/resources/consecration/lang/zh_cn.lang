@@ -1,0 +1,69 @@
+effect.holy=Consecration
+
+potion.effect.holy=献祭药水
+tipped_arrow.effect.holy=献祭之箭
+splash_potion.effect.holy=献祭喷溅药水
+lingering_potion.effect.holy=献祭滞留药水
+
+item.consecration.blessed_dust.name=福尘
+item.consecration.fire_bomb.name=火焰炸弹
+item.consecration.fire_stick.name=火火焰棒
+item.consecration.fire_arrow.name=火焰箭
+
+enchantment.consecration.blessing=祝福
+enchantment.consecration.blessing.desc=减少不死生物造成的伤害
+
+advancements.consecration.killed_undead_with_smite.title=狩猎之夜
+advancements.consecration.killed_undead_with_smite.description=重击亡灵
+
+fluid.holy_water=圣水
+
+tile.consecration.holy_water.name=圣水
+
+consecration.benediction.water=此水已经被牧师祝福
+consecration.benediction.dust=此尘土已经被牧师祝福
+consecration.benediction.power=您没有足够的经验得到祝福 §r§m(宁不配被祝福)§r
+
+consecration.general.dimensionpermission=Dimension Permission Mode
+consecration.general.dimensionpermission.tooltip=Set whether the dimension configuration is blacklisted or whitelisted
+consecration.general.dimensionlist=Dimension List
+consecration.general.dimensionlist.tooltip=Set which dimensions are blacklisted or whitelisted for affected undead, leave blank to disable this option
+consecration.general.blessingcost=Blessing XP Level Cost
+consecration.general.blessingcost.tooltip=Set how many levels a blessing from a villager priest costs
+
+consecration.general.holy.firesmiteduration=Fire Smite Duration
+consecration.general.holy.firesmiteduration.tooltip=The amount of time, in seconds, that smiting from fire lasts
+consecration.general.holy.smiteduration=Holy Smite Duration
+consecration.general.holy.smiteduration.tooltip=The amount of time, in seconds, that smiting from holy sources lasts
+consecration.general.holy.holyentities=Holy Entities
+consecration.general.holy.holyentities.tooltip=A list of entities that will be able to damage and smite undead
+consecration.general.holy.holypotions=Holy Potions
+consecration.general.holy.holypotions.tooltip=A list of potions that will be able to damage and smite undead
+consecration.general.holy.holyweapons=Holy Weapons
+consecration.general.holy.holyweapons.tooltip=A list of items that will be able to damage and smite undead
+consecration.general.holy.holyenchantments=Holy Enchantments
+consecration.general.holy.holyenchantments.tooltip=A list of enchantments will be able to damage and smite undead
+consecration.general.holy.holydamage=Holy Damage
+consecration.general.holy.holydamage.tooltip=A list of damage types that will be able to damage and smite undead
+consecration.general.holy.holymaterial=Holy Material
+consecration.general.holy.holymaterial.tooltip=A list of material names that will be able to damage and smite undead
+
+consecration.general.undying.defaultundead=Auto-Include Default Undead Mobs
+consecration.general.undying.defaultundead.tooltip=Set to true to include all mobs that are listed as undead by default
+consecration.general.undying.undeadmobs=Undead Mobs
+consecration.general.undying.undeadmobs.tooltip=A list of mobs that will be classified as undead in addition to the regular undead
+consecration.general.undying.damagereduction=Damage Reduction
+consecration.general.undying.damagereduction.tooltip=Set undead natural damage reduction, in percent, against all non-holy damage
+consecration.general.undying.healthregen=Health Regen
+consecration.general.undying.healthregen.tooltip=Set undead natural health regen, in half-hearts per second, when not smote
+consecration.general.undying.reducedamagevsmobs=Reduce Damage Against Non-Players
+consecration.general.undying.reducedamagevsmobs.tooltip=Set to true to have undead reduce damage against non-player non-holy entities
+consecration.general.undying.speedmodifier=Bonus Speed Modifier
+consecration.general.undying.speedmodifier.tooltip=Set undead natural bonus speed modifier
+
+consecration.general.modsupport.reliquaryglowingwater=Reliquary Glowing Water
+consecration.general.modsupport.reliquaryglowingwater.tooltip=Set to true to give Reliquary's Glowing Water smiting
+consecration.general.modsupport.mkultrasources=MK-Ultra Holy Damage
+consecration.general.modsupport.mkultrasources.tooltip=List of abilities from MK-Ultra that will deal holy damage
+consecration.general.modsupport.tinkersholymodifiers=Tinkers' Holy Modifiers
+consecration.general.modsupport.tinkersholymodifiers.tooltip=List of modifiers from Tinkers' Construct that will smite

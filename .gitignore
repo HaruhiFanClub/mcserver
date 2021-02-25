@@ -1,4 +1,51 @@
 *.code-workspace
+<<<<<<< HEAD
 *.bak
 .vscode
 .temp
+=======
+.vscode
+
+.temp
+
+*.bak
+*.jar
+*.test.*
+
+/server/minecraft/mods/*
+
+/server/minecraft/local/client/*
+
+/server/minecraft/config/*
+# !/server/minecraft/config/worldedit
+# /server/minecraft/config/worldedit/sessions
+!/server/minecraft/config/gravestone.cfg
+!/server/minecraft/config/epicsiegemod.cfg
+!/server/minecraft/config/journeymap_server.cfg
+!/server/minecraft/config/ftblib.cfg
+!/server/minecraft/config/ftbutilities.cfg
+!/server/minecraft/config/cfm.cfg
+!/server/minecraft/config/sasit.cfg
+!/server/minecraft/config/TouhouLittleMaid.cfg
+!/server/minecraft/config/tconstruct.cfg
+!/server/minecraft/config/Waystones.cfg
+!/server/minecraft/config/autm.cfg
+!/server/minecraft/config/backstab.cfg
+!/server/minecraft/config/champions.cfg
+!/server/minecraft/config/consecration.cfg
+!/server/minecraft/config/epicsiegemod.cfg
+!/server/minecraft/config/roughtweaks.cfg
+!/server/minecraft/config/splash.cfg
+!/server/minecraft/config/WizardryFates.cfg
+!/server/minecraft/config/xreliquary.cfg
+
+!/server/minecraft/config/ebwizardry/
+/server/minecraft/config/ebwizardry/ebwizardry.cfg
+
+!/server/minecraft/config/antiqueatlas/
+/server/minecraft/config/antiqueatlas/*.json
+
+!/server/minecraft/config/champions/
+
+server/minecraft/local/ftbutilities/players.txt
+>>>>>>> v4
