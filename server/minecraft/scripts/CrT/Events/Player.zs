@@ -8,6 +8,8 @@ import crafttweaker.events.IEventManager;
 import crafttweaker.event.ILivingEvent;
 import crafttweaker.event.PlayerLoggedInEvent;
 import crafttweaker.event.PlayerAttackEntityEvent;
+import crafttweaker.event.PlayerAnvilUpdateEvent;
+import crafttweaker.event.PlayerRightClickItemEvent;
 import crafttweaker.event.IEventCancelable;
 import crafttweaker.server.IServer;
 import crafttweaker.game.IGame;
@@ -15,6 +17,7 @@ import crafttweaker.data.IData;
 import crafttweaker.item.IItemStack;
 import crafttweaker.item.IItemCondition;
 import mods.zenutils.UUID;
+import mods.ctutils.utils.Math;
 import scripts.utils.common.RunCmd;
 import scripts.utils.command.vanilla.BuildTellraw;
 import scripts.utils.command.extend.BuildServerChan;
@@ -129,4 +132,193 @@ events.onPlayerAttackEntity(function(event as PlayerAttackEntityEvent){
 			}
 		}
 	}
+});
+
+
+events.onPlayerAnvilUpdate(function(event as PlayerAnvilUpdateEvent){
+	var left = event.leftItem;
+	var right = event.rightItem;
+	var left_allows = [
+		"minecraft:iron_sword",
+		"minecraft:wooden_sword",
+		"minecraft:stone_sword",
+		"minecraft:diamond_sword",
+		"minecraft:golden_sword",
+
+		"minecraft:iron_axe",
+		"minecraft:wooden_axe",
+		"minecraft:stone_axe",
+		"minecraft:diamond_axe",
+		"minecraft:golden_axe",
+
+		"minecraft:leather_helmet",
+		"minecraft:chainmail_helmet",
+		"minecraft:iron_helmet",
+		"minecraft:diamond_helmet",
+		"minecraft:golden_helmet",
+
+		"minecraft:leather_chestplate",
+		"minecraft:chainmail_chestplate",
+		"minecraft:iron_chestplate",
+		"minecraft:diamond_chestplate",
+		"minecraft:golden_chestplate",
+
+		"minecraft:leather_leggings",
+		"minecraft:golden_leggings",
+		"minecraft:diamond_leggings",
+		"minecraft:iron_leggings",
+		"minecraft:chainmail_leggings",
+
+		"minecraft:leather_boots",
+		"minecraft:chainmail_boots",
+		"minecraft:iron_boots",
+		"minecraft:diamond_boots",
+		"minecraft:golden_boots",
+
+		"minecraft:iron_pickaxe",
+		"minecraft:wooden_pickaxe",
+		"minecraft:stone_pickaxe",
+		"minecraft:diamond_pickaxe",
+		"minecraft:golden_pickaxe",
+
+		"minecraft:iron_shovel",
+		"minecraft:wooden_shovel",
+		"minecraft:golden_shovel",
+		"minecraft:stone_shovel",
+		"minecraft:diamond_shovel",
+
+		"minecraft:wooden_hoe",
+		"minecraft:stone_hoe",
+		"minecraft:iron_hoe",
+		"minecraft:diamond_hoe",
+		"minecraft:golden_hoe"
+	] as string[];
+	if (right.matches(<contenttweaker:enchantment_booster>)) {
+
+		for item_id in left_allows {
+			if (left.definition.id == item_id) {
+
+				var tags = left.tag as IData;
+				if (!(tags has "ench")) {
+					break;
+				}
+				val old_enchs = tags.ench as IData;
+
+				var ench_count = old_enchs.length as int;
+				var highest_lvl = 0;
+				for index in 0 .. ench_count {
+					var _lvl = old_enchs[index].lvl as int;
+					if (_lvl > highest_lvl) { // 获取最高等级
+						highest_lvl = _lvl;
+					}
+					if ((old_enchs[index].id == 10 as short) || (old_enchs[index].id == 71 as short)) { // 在附魔条数中剔除诅咒
+						ench_count -= 1;
+					}
+				}
+				if (ench_count > 7) { // 限制最多允许条数为7
+					ench_count = 7;
+				}
+				// print("ench_count:"+ench_count);
+
+				tags -= {ench:old_enchs} as IData; // 清除原有附魔
+
+				// if (!(tags has "RepairCost")) { // 模拟铁砧机制
+				// 	event.xpCost = 1;
+				// 	tags += {RepairCost:1};
+				// } else {
+				// 	val _cost = tags.RepairCost as int;
+				// 	val _next = (_cost * 2) + 1;
+				// 	tags -= {RepairCost:(_cost as int)};
+				// 	tags += {RepairCost:(_next as int)};
+				// } 
+				event.xpCost = 6;
+
+				var _strengthened = 1; // 记录强化次数
+				if (tags has "strengthened") {
+					_strengthened = (tags.strengthened as int) + 1;
+				}
+				tags += {strengthened:(_strengthened as int)} as IData;
+
+				tags += {HideFlags:63} as IData; // 隐藏属性
+
+				var new_enchs = {ench:[]} as IData;
+				if (ench_count >= highest_lvl) { // N≥X
+
+					// print("N≥X");
+					if (Math.random() < ((1  as double) / (highest_lvl as double)) as double) { // 1/X
+						// print("1/X");
+						for index in 0 .. ench_count {
+							var _ench = old_enchs[index];
+							new_enchs += {ench:[{id: _ench.id as short, lvl: (_ench.lvl + 1) as short}]} as IData;
+						}
+						event.outputItem = left.withTag(tags + new_enchs);
+						break;
+					}
+
+					// print("other");
+					val random_index = (Math.random() * ench_count) as int;
+					for index in 0 .. ench_count {
+						var _ench = old_enchs[index];
+						if (index == random_index) {
+							new_enchs += {ench:[{id: _ench.id as short, lvl: (_ench.lvl + 1) as short}]} as IData;
+						} else {
+							new_enchs += {ench:[{id: _ench.id as short, lvl: _ench.lvl as short}]} as IData;
+						}
+					}
+					event.outputItem = left.withTag(tags + new_enchs);
+					break;
+
+				} else { // N＜X 
+					// print("N<X");
+
+					if (Math.random() < ((1  as double) / (highest_lvl as double)) as double) { // 1/X
+						// print("1/X");
+						for index in 0 .. ench_count {
+							var _ench = old_enchs[index];
+							new_enchs += {ench:[{id: _ench.id as short, lvl: (_ench.lvl + 1) as short}]} as IData;
+						}
+						event.outputItem = left.withTag(tags + new_enchs);
+						break;
+					}
+
+					if (Math.random() < ((ench_count  as double) / (highest_lvl as double)) as double) { // N/X
+						// print("N/X");
+						val random_index = (Math.random() * ench_count) as int;
+						for index in 0 .. ench_count {
+							var _ench = old_enchs[index];
+							if (index == random_index) {
+								new_enchs += {ench:[{id: _ench.id as short, lvl: (_ench.lvl + 1) as short}]} as IData;
+							} else {
+								new_enchs += {ench:[{id: _ench.id as short, lvl: _ench.lvl as short}]} as IData;
+							}
+						}
+						event.outputItem = left.withTag(tags + new_enchs);
+						break;
+					}
+
+					// print("other");
+					event.outputItem = left.withTag((tags +{ench:[{id: -1 as short, lvl: 0 as short}]} as IData) as IData);
+					break;
+
+				}
+			}
+		}
+	}
+});
+
+events.onPlayerRightClickItem(function(event as PlayerRightClickItemEvent) { // 主手Shift右击模拟鉴定
+	val player = event.player as IPlayer;
+	if (player.world.remote) {return;}
+	var item = event.item;
+	if (isNull(item)) {return;}
+	if (player.isSneaking) {
+		if (item.matches(player.getItemInSlot(IEntityEquipmentSlot.mainHand()))) {
+			var tags = item.tag as IData;
+			if (tags has "strengthened") {
+				player.setItemToSlot(IEntityEquipmentSlot.mainHand(), item.withTag(tags - {HideFlags:63} as IData)); // 移除隐藏属性标签
+			}
+			return;
+		}
+	}
+
 });

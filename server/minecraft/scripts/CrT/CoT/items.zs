@@ -178,3 +178,8 @@ giftItem.itemRightClick = function(item, world, player, hand) {
 	return "PASS";
 };
 giftItem.register();
+
+val enchBooster = VanillaFactory.createItem("enchantment_booster");
+enchBooster.setMaxStackSize(1);
+enchBooster.rarity = "rare";
+enchBooster.register();

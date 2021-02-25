@@ -110,3 +110,13 @@ recipes.addShapeless(
 	},
 	null
 );
+
+recipes.addShaped(
+	"enchantment_booster",
+	<contenttweaker:enchantment_booster>,
+	[
+		[<ore:gemDiamond>, <ore:gemEmerald>, <ore:gemDiamond>],
+		[<ore:ingotGold>, <ore:blockLapis>, <ore:ingotGold>],
+		[<ore:gemDiamond>, <ore:gemEmerald>, <ore:gemDiamond>],
+	]
+);
