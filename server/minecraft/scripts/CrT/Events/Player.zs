@@ -32,13 +32,13 @@ events.onPlayerLoggedIn(function(event as PlayerLoggedInEvent) {
 		val logged_in = data.PlayerPersisted.loggedIn.asInt();
 
 		if (logged_in != 0) {
-			RunCmd(BuildTellraw(
-				name,
-				[
-					"{\"translate\":\"message.shw.login.player.1\",\"with\":[\"" + name + "\"]}",
-					"{\"selector\": \"@a[name=" + name + "]\"}"
-				] as string[]
-			));
+			// RunCmd(BuildTellraw(
+			// 	name,
+			// 	[
+			// 		"{\"translate\":\"message.shw.login.player.1\",\"with\":[\"" + name + "\"]}",
+			// 		"{\"selector\": \"@a[name=" + name + "]\"}"
+			// 	] as string[]
+			// ));
 		} else {
 			RunCmd(BuildServerChan(
 				"@a",
